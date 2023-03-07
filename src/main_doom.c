@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <sys/types.h>
+#include <math.h>
+#include <string.h>
+#include <ctype.h>
 #include <SDL.h>
 
 #define ASSERT(_e, ...) if (!(_e)) { fprintf(stderr, __VA_ARGS__); exit(1); }

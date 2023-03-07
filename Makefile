@@ -1,7 +1,7 @@
 print-%:; @echo $($*)
 
-CC = $(shell brew --prefix llvm)/bin/clang
-LD = $(shell brew --prefix llvm)/bin/clang
+CC = clang
+LD = clang
 
 # library paths
 PATH_LIB = lib
@@ -38,9 +38,9 @@ CCFLAGS += -Wno-c99-extensions
 CCFLAGS += -Wno-c11-extensions
 
 LDFLAGS = -lm
-LDFLAGS += $(shell $(BIN)/sdl/sdl2-config --prefix=$(BIN) --static-libs)
-
+LDFLAGS += $(shell sdl2-config --cflags --libs)
 BIN = bin
+
 SRC = $(shell find src -name "*.c")
 OBJ = $(SRC:%.c=$(BIN)/%.o)
 DEP = $(SRC:%.c=$(BIN)/%.d)
